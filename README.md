@@ -2,7 +2,7 @@
 
 This web application allows users to report lost items, search for lost items, and report found items. It is built using HTML, CSS, JavaScript, Django, and SQLite.
 
-<a href="https://www.youtube.com/watch?v=clj_6vDFsmo">YouTube Video</a>
+<a href="https://www.youtube.com/watch?v=clj_6vDFsmo" target="_blank">YouTube Video</a>
 
 ## Features
 
