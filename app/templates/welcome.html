@@ -1,0 +1,594 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Lost & Found</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        body::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            user-select: none;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+            border-bottom: 1px solid #004e92;
+        }
+
+        .navbar .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo-icon {
+            font-size: 40px;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .navbar .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .navbar .logo-text span {
+            color: #ffeb3b;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+
+
+
+        .welcome-hero {
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+            color: #fff;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .welcome-hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-hero p {
+            font-size: 20px;
+        }
+
+        .welcome-section {
+            padding: 50px 20px;
+            background: #C9D6FF;
+            background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
+            background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+        }
+
+        .welcome-section .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .welcome-section h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .welcome-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .welcome-item {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 48%;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .welcome-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .welcome-item h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .welcome-item p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+            color: #004e92;
+        }
+
+        .highlight {
+            color: pink;
+            font-weight: bold;
+        }
+
+        .features {
+            padding: 50px 0;
+            background: #fff;
+            background: #C9D6FF;
+            background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
+            background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+        }
+
+        .features .container {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .features .feature-item {
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .features .feature-item i {
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .features .feature-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .gallery {
+            padding: 50px 0;
+            background: #fff;
+            background: #C9D6FF;
+            background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
+            background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+
+        }
+
+        .gallery .container {
+            text-align: center;
+        }
+
+        .gallery h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .gallery .gallery-item {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .gallery .gallery-item img {
+            width: 300px;
+            height: 200px;
+            border-radius: 5px;
+        }
+
+
+        .guide-hero {
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+            color: #fff;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .guide-hero h2 {
+            font-size: 48px;
+        }
+
+        .guide-hero p {
+            font-size: 20px;
+        }
+
+        .guide-section {
+            padding: 50px 20px;
+            background: #fff;
+        }
+
+        .guide-section .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .guide-section h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .guide-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .guide-step {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 48%;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .guide-step img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .guide-step h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .guide-step p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #6b73ff;
+            font-weight: bold;
+        }
+
+
+        .purpose-hero {
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+
+            color: #fff;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .purpose-hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .purpose-hero p {
+            font-size: 20px;
+        }
+
+        .purpose-section {
+            padding: 50px 20px;
+            background: #fff;
+            background: #C9D6FF;
+            background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
+            background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+        }
+
+        .purpose-section .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .purpose-section h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .purpose-content {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .purpose-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .purpose-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .highlight {
+            color: #6b73ff;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+        }
+
+        footer .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            passwordInput
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo-text">
+                Lost <span>&</span> Found
+            </div>
+        </div>
+        <ul>
+            <li><a href="{% url 'home' %}" style="color: yellow; font-weight: 700;">Home</a></li>
+            <li><a href="{% url 'registration' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+    </nav>
+
+
+    <section class="welcome-hero">
+        <div class="container">
+            <h2>Welcome to Lost & Found</h2>
+            <p>Connecting you with your lost belongings, quickly and easily.</p>
+        </div>
+    </section>
+
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-item">
+                <i class="fas fa-search"></i>
+                <h3>Search Lost Items</h3>
+                <p>Look through the items reported lost and see if someone has found yours.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Report Found Items</h3>
+                <p>Found something? Help it find its way back to the owner by reporting it here.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-users"></i>
+                <h3>Community Support</h3>
+                <p>Join a community of people dedicated to helping each other find their lost belongings.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="purpose-hero">
+        <div class="container">
+            <h2>Our Purpose</h2>
+            <p>Learn about the mission and purpose of our Lost & Found website.</p>
+        </div>
+    </section>
+
+    <section class="purpose-section">
+        <div class="container">
+            <h3 style="font-weight: 700;">Why We Exist</h3>
+            <div class="purpose-content">
+                <div style="text-align: center;">
+                    <img src="{% static 'images/why.svg' %}" alt="Lost and Found Purpose" style="width: 800px; height: 400px;">
+                </div>
+                <p>The <span style="color: #004e92; font-weight: 700; font-size: 25px;">Lost & Found</span> website was
+                    created
+                    with the mission to reunite people with their lost belongings and provide a platform for reporting
+                    found items. Our goal is to create a community-driven solution where individuals can easily report
+                    lost or found items and connect with each other to return these items to their rightful owners.</p>
+                <p style="color: black; font-size: 20px; font-weight: 700;">Our platform allows users to:</p>
+                <ul>
+                    <li>Report lost items with detailed descriptions and images.</li>
+                    <li>Report found items to help others find their lost belongings.</li>
+                    <li>Search for lost or found items in their area.</li>
+                    <li>Communicate with other users to arrange the return of found items.</li>
+                </ul>
+                <p style="margin-top: 20px;">We understand the frustration and anxiety that comes with losing personal
+                    belongings, and our aim is
+                    to make the process of finding and returning lost items as seamless and efficient as possible.</p>
+                <p>By utilizing this platform, you are not only helping yourself but also contributing to a larger
+                    community effort to make lost and found experiences more manageable and less stressful for everyone
+                    involved.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="guide-hero">
+        <div class="container">
+            <h2 style="margin-bottom: 20px;">How to Use Lost & Found</h2>
+            <p>Follow these simple steps to report lost or found items and find your belongings quickly.</p>
+        </div>
+    </section>
+
+
+    <section class="welcome-section">
+        <div class="container">
+            <h3 style="font-weight: 700;">Get Started</h3>
+            <div class="welcome-content">
+                <div class="welcome-item" style="text-align: center;">
+                    <div class="icon"><i class="fas fa-user-plus"></i></div>
+                    <h4>Create an Account</h4>
+                    <p>Sign up to start using our services. Create an account to report lost or found items and stay
+                        updated on new matches.</p>
+                </div>
+                <div class="welcome-item" style="text-align: center;">
+                    <div class="icon">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </div>
+                    <h4>Log In</h4>
+                    <p>Log in to your account to report items, search for lost belongings, and connect with other users.
+                    </p>
+                </div>
+                <div class="welcome-item" style="text-align: center;">
+                    <div class="icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <h4>Report Lost Item</h4>
+                    <p>If you have lost an item, report it here. Provide detailed descriptions and images to help others
+                        identify it.</p>
+                </div>
+                <div class="welcome-item" style="text-align: center;">
+                    <div class="icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h4>Report Found Item</h4>
+                    <p>Found something? Report it here to help return it to its owner. Your help makes a difference.</p>
+                </div>
+                <div class="welcome-item" style="text-align: center;">
+                    <div class="icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4>Search for Items</h4>
+                    <p>Use our search feature to look for lost or found items. Enter keywords to find matches quickly.
+                    </p>
+                </div>
+                <div class="welcome-item" style="text-align: center;">
+                    <div class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4>Contact Users</h4>
+                    <p>Get in touch with users who have found or lost items. Communicate to arrange the return of
+                        belongings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="guide-hero" style="height: 90px;">
+        <div class="container">
+            <h2>Recent Listings</h2>
+        </div>
+    </section>
+
+
+
+
+    <section class="gallery">
+        <div class="container">
+            <div class="gallery-item">
+                <img src="{% static 'images/backpack.webp' %}" alt="Item 1" style="width: 300px; height: 200px;">
+                <p>Lost Backpack</p>
+            </div>
+            <div class="gallery-item">
+                <img src="{% static 'images/wallet.jpg' %}" alt="Item 2" style="width: 300px; height: 200px;">
+                <p>Found Wallet</p>
+            </div>
+            <div class="gallery-item">
+                <img src="{% static 'images/Key.jpg' %}" alt="Item 3" style="width: 300px; height: 200px;">
+                <p>Lost Bike Key</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Lost & Found. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: #f4f4f4;
+            color: #333;
+            
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: #c31432;
+            background: -webkit-linear-gradient(to right, #240b36, #c31432);
+            background: linear-gradient(to right, #240b36, #c31432);
+            width: 100%;
+        }
+
+        .navbar .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo-icon {
+            font-size: 40px;
+            color: #fff;
+            margin-right: 10px;
+
+        }
+
+        .navbar .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .navbar .logo-text span {
+            color: #ffeb3b;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+
+
+        .dashboard-hero {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: #fff;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: #c31432;
+            background: -webkit-linear-gradient(to right, #240b36, #c31432);
+            background: linear-gradient(to right, #240b36, #c31432);
+
+        }
+
+        .dashboard-hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .dashboard-hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        .dashboard-section {
+            padding: 50px 0;
+            background: #fff;
+            background: #E0EAFC;
+            background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+            background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+        }
+
+        .dashboard-section .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .dashboard-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1 1 30%;
+            margin: 10px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card i {
+            font-size: 48px;
+            color: #6f0000;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #c31432;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+
+            background: #200122;
+            background: -webkit-linear-gradient(to right, #6f0000, #200122);
+            background: linear-gradient(to right, #6f0000, #200122);
+        }
+
+    
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            background: #c31432;
+            background: -webkit-linear-gradient(to right, #240b36, #c31432);
+            background: linear-gradient(to right, #240b36, #c31432);
+        }
+
+        footer .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <i class="fas fa-search logo-icon"></i>
+            <div class="logo-text">
+                Lost <span>&</span> Found
+            </div>
+        </div>
+        <ul>
+            <li><a href="{% url 'dashboard' %}" style="color: yellow; font-weight: 600;">Home</a></li>
+            <li><a href="{% url 'my_account' %}">My Account</a></li>
+            <li><a href="{% url 'report_lost_item' %}">Report Lost Item</a></li>
+            <li><a href="{% url 'report_found_item' %}">Report Found Item</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+
+
+    <section class="dashboard-hero">
+        <div class="container">
+            <h2>Welcome Back!</h2>
+            <p>Manage your reports, view recent listings, and help others find their lost items.</p>
+        </div>
+    </section>
+
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="dashboard-cards">
+                <div class="card">
+                    <i class="fas fa-search"></i>
+                    <h3>Search Lost Items</h3>
+                    <p>Look through the items reported lost and see if someone has found yours.</p>
+                    <a href="{% url 'search_lost_item' %}" class="btn">Search Now</a>
+                </div>
+                <div class="card">
+                    <i class="fas fa-user"></i>
+                    <h3>My Reports</h3>
+                    <p>View and manage the items you have reported lost or found.</p>
+                    <a href="{% url 'manage_report' %}" class="btn">View Reports</a>
+                </div>
+                <div class="card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Report Found Item</h3>
+                    <p>Found something? Help it find its way back to the owner by reporting it here.</p>
+                   <a href="{% url 'report_found_item' %}" class="btn">Report Now</a>
+                </div>
+            </div> 
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Lost & Found. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            user-select: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #E0EAFC;
+            background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+            background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+            position: relative;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+            border-bottom: 1px solid #004e92;
+            width: 100%;
+        }
+
+        .navbar .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo-icon {
+            font-size: 40px;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .navbar .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .navbar .logo-text span {
+            color: #ffeb3b;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            font-size: 18px;
+
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23000%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22/%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-position: right 0.75em center;
+            background-size: 1em;
+        }
+
+        select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+
+        footer {
+            margin-top: 50px;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+            position: absolute;
+            bottom: 0;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .login-heading {
+            text-align: center;
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+            color: whitesmoke;
+            margin-bottom: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 4px;
+        }
+
+
+        .error-box {
+            width: 420px;
+            display: flex;
+            align-items: center;
+            background-color: #ffdddd;
+            border: 1px solid #ff4d4d;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            left: -120%;
+            top: 40%;
+        }
+
+
+        .error-message {
+            font-size: 16px;
+            color: #d8000c;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+        }
+
+        .toggle-password-button {
+            display: block;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            background: none;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .toggle-password-button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo-text">
+                Lost <span>&</span> Found
+            </div>
+        </div>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'registration' %}">Register</a></li>
+            <li><a href="{% url 'login' %}" style="color: yellow; font-weight: 700;">Login</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="container">
+        <h1 style="font-weight: 600;">Login</h1>
+        <div>
+            <label for="login-type">Login as:</label>
+            <select id="login-type" onchange="showLoginForm()">
+                <option value="student">Student</option>
+                <option value="staff">Staff</option>
+            </select>
+        </div>
+        <form id="student-login-form" class="form" style="display:none;" method="post">
+            {% csrf_token %}
+            <h2 class="login-heading">Student Login</h2>
+            <label for="student-roll-number">Roll Number:</label>
+            <input type="text" id="student-roll-number" name="roll_number" required>
+            <label for="student-password">Password:</label>
+            <input type="password" id="student-password" name="password" required>
+            <button type="button" class="toggle-password-button" onclick="togglePasswordVisibility('student-password', this)">Show Password</button>
+            <button type="submit">Login</button>
+            {% if student_credential_error %}
+            <div id="student-credential-error" style="color: red; padding: 3px; margin-top: 8px;">
+                Roll Number or Password is Incorrect
+            </div>
+            {% endif %}
+            <input type="text" name="user" value="student" hidden>
+        </form>
+        <form id="staff-login-form" class="form" style="display:none;" method="post">
+            {% csrf_token %}
+            <h2 class="login-heading">Staff Login</h2>
+            <label for="staff-id">Staff ID:</label>
+            <input type="text" id="staff-id" name="staff_id" required>
+            <label for="staff-password">Password:</label>
+            <input type="password" id="staff-password" name="password" required>
+            <button type="button" class="toggle-password-button" onclick="togglePasswordVisibility('staff-password', this)">Show Password</button>
+            <button type="submit">Login</button>
+            <input type="text" name="user" value="staff" hidden>
+            {% if staff_credential_error %}
+            <div id="student-credential-error" style="color: red; padding: 3px; margin-top: 8px;">
+                Roll Number or Password is Incorrect
+            </div>
+            {% endif %}
+        </form>
+    </div>
+
+
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Lost & Found. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        function showLoginForm() {
+            var userType = document.getElementById("login-type").value;
+            var studentForm = document.getElementById("student-login-form");
+            var staffForm = document.getElementById("staff-login-form");
+
+            if (userType === "student") {
+                studentForm.style.display = "block";
+                staffForm.style.display = "none";
+            } else if (userType === "staff") {
+                studentForm.style.display = "none";
+                staffForm.style.display = "block";
+            } else {
+                studentForm.style.display = "none";
+                staffForm.style.display = "none";
+            }
+        }
+
+        function togglePasswordVisibility(passwordId, button) {
+            var passwordInput = document.getElementById(passwordId);
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                button.textContent = "Hide Password";
+            } else {
+                passwordInput.type = "password";
+                button.textContent = "Show Password";
+            }
+        }
+
+        showLoginForm();
+    </script>
+
+</body>
+
+</html>

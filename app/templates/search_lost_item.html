@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Lost Items</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            user-select: none;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        body::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+
+        select {
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo-icon {
+            font-size: 40px;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .navbar .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .navbar .logo-text span {
+            color: #ffeb3b;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background-color: #6b73ff;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .search-bar button:hover {
+            background-color: #000dff;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .filters select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .results {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .result-item {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: calc(33% - 40px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-item img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .result-item h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .result-item p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .result-item button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            background-color: #6b73ff;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .result-item button:hover {
+            background-color: #000dff;
+        }
+
+
+        .container2 {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .message-board {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        .message-board h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .message-board ol {
+            margin: 0;
+            padding-left: 20px;
+            color: #555;
+        }
+
+        .message-board ul {
+            margin: 10px 0 20px 0;
+            padding-left: 20px;
+            list-style-type: none;
+        }
+
+        .message-board ul li {
+            margin: 5px 0;
+        }
+
+        .message-board ul li strong {
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .results {
+                flex-direction: column;
+            }
+
+            .result-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <i class="fas fa-search logo-icon"></i>
+            <div class="logo-text">
+                Lost <span>&</span> Found
+            </div>
+        </div>
+        <ul>
+            <li><a href="{% url 'dashboard' %}">Home</a></li>
+            <li><a href="{% url 'my_account' %}">My Account</a></li>
+            <li><a href="{% url 'report_lost_item' %}">Report Lost Item</a></li>
+            <li><a href="{% url 'report_found_item' %}">Report Found Item</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+
+
+
+
+
+    <div class="container">
+        <h1>Search Lost Items</h1>
+        <form class="search-bar" method="post" action="">
+            {% csrf_token %}
+            <input type="text" placeholder="Search for lost items..." name="search-term" required>
+            <button><i class="fas fa-search"></i> Search</button>
+        </form>
+        <div class="results">
+            {% for found in founds %}
+            <div class="result-item">
+                <img src="{{found.image.url}}" alt="Lost Item">
+                <h2>{{found.item_name|capfirst}}</h2>
+                <p>Location: {{found.location|capfirst}}</p>
+                <p>Date: {{found.date_found}}</p>
+                <p>ID:{{found.id}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    
+    <div class="container2">
+        <h1>Contact the Authority</h1>
+        <p>If you have identified your lost item from the list, please follow the steps below to retrieve it:</p>
+
+        <div class="message-board">
+            <h2>Steps to Retrieve Your Lost Item</h2>
+            <ol>
+                <li>Take note of the unique identifier or reference number of your item.</li>
+                <li>Contact our Lost and Found department using the following methods:</li>
+                <ul>
+                    <li><strong>Phone:</strong>+91 9997835724</li>
+                    <li><strong>Email:</strong> support@lostandfound.com</li>
+                    <li><strong>Office Address:</strong> Jalalabad, Shamli, UP, India</li>
+                </ul>
+                <li>Provide the unique identifier or reference number, along with a description of your item.</li>
+                <li>Verify your identity by providing a valid ID.</li>
+                <li>Arrange a convenient time to collect your item from our office.</li>
+            </ol>
+            <p>If you have any questions or need further assistance, do not hesitate to contact us. We are here to help
+                you retrieve your lost belongings.</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

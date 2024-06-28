@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found - Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            user-select: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #E0EAFC;
+            background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+            background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+            position: relative;
+        }
+
+        body::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+            border-bottom: 1px solid #004e92;
+            width: 100%;
+        }
+
+        .navbar .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo-icon {
+            font-size: 40px;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .navbar .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .navbar .logo-text span {
+            color: #ffeb3b;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+
+
+        #container-wrapper{
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            font-size: 18px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23000%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22/%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-position: right 0.75em center;
+            background-size: 1em;
+        }
+
+        select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        footer {
+            margin-top: 200px;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .registration-heading {
+            text-align: center;
+            background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428);
+            color: whitesmoke;
+            margin-bottom: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 4px;
+        }
+
+        .error {
+            border: 1px solid;
+            margin: 10px 0px;
+            padding: 15px 10px 15px 15px;
+            color: #D8000C;
+            background-color: #FFBABA;
+            border-radius: 4px;
+        }
+
+        .password-requirement {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+        }
+
+        /* Existing styles */
+        .password-requirement {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .password-requirement li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        .password-requirement li .icon {
+            margin-right: 5px;
+            color: green;
+            display: none;
+        }
+
+        .password-requirement li.valid .icon {
+            display: inline;
+        }
+
+        .char-count {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .password-toggle {
+            cursor: pointer;
+            font-size: 14px;
+            color: #007bff;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo-text">
+                Lost <span>&</span> Found
+            </div>
+        </div>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'registration' %}" style="color: yellow; font-weight: 700;">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+    </nav>
+
+    <div id="container-wrapper">
+        <div class="container">
+            <h1 style="font-weight: 600;">Registration</h1>
+            <div>
+                <label for="user-type">Register as:</label>
+                <select id="user-type" onchange="showForm()">
+                    <option value="student">Student</option>
+                    <option value="staff">Staff</option>
+                </select>
+            </div>
+            <form id="student-form" class="form" style="display:none;" method="post">
+                {% csrf_token %}
+                <h2 class="registration-heading">Register as Student</h2>
+                <label for="roll-number">Roll Number:</label>
+                {% if roll_number_error %}
+                <small style="color: red; font-weight: 500;">Roll number does not exist</small>
+                {% endif %}
+                {% if account_exists %}
+                <small style="color: red; font-weight: 500;">Account already created</small>
+                {% endif %}
+                <input type="text" id="roll-number" name="roll_number" required value={{roll_number}}>
+                <label for="student-password">Create Password:</label>
+                <input type="password" id="student-password" name="password" required maxlength="16" minlength="8" value={{password}}>
+                <span class="password-toggle" id="student-toggle-password" onclick="togglePassword('student')">Show Password</span>
+                <div class="char-count" id="student-char-count">0 / 16 characters</div>
+                <div class="password-requirement">
+                    <ul id="student-password-requirements">
+                        <li id="student-length-requirement"><span class="icon">&#x2714;</span> Password must be 8-16
+                            characters long</li>
+                        <li id="student-numeric-requirement"><span class="icon">&#x2714;</span> Password must contain two
+                            numerical characters</li>
+                        <li id="student-special-requirement"><span class="icon">&#x2714;</span> Password must contain two
+                            special characters</li>
+                        <li id="student-uppercase-requirement"><span class="icon">&#x2714;</span> Password must contain two
+                            letters in UPPERCASE</li>
+                    </ul>
+                </div>
+                <button id="student-submit-btn" type="submit" style="display:none;">Register</button>
+                <input type="text" hidden value="student" name="user">
+            </form>
+            <form id="staff-form" class="form" style="display:none;" method="post">
+                {% csrf_token %}
+                <h2 class="registration-heading">Register as Staff</h2>
+                <label for="staff-id">Staff ID:</label>
+                {% if staff_id_error %}
+                <small style="color: red; font-weight: 500;">Staff ID does not Exist</small>
+                {% endif %}
+                <input type="text" id="staff-id" name="staff-id" required>
+                <label for="staff-password">Create Password:</label>
+                <input type="password" id="staff-password" name="password" required maxlength="16" minlength="8">
+                <span class="password-toggle" id="staff-toggle-password" onclick="togglePassword('staff')">Show Password</span>
+                <div class="char-count" id="staff-char-count">0 / 16 characters</div>
+                <div class="password-requirement">
+                    <ul id="staff-password-requirements">
+                        <li id="staff-length-requirement"><span class="icon">&#x2714;</span> Password must be 8-16
+                            characters long</li>
+                        <li id="staff-numeric-requirement"><span class="icon">&#x2714;</span> Password must contain two
+                            numerical characters</li>
+                        <li id="staff-special-requirement"><span class="icon">&#x2714;</span> Password must contain two
+                            special characters</li>
+                        <li id="staff-uppercase-requirement"><span class="icon">&#x2714;</span> Password must contain two
+                            letters in UPPERCASE</li>
+                    </ul>
+                </div>
+                <button id="staff-submit-btn" type="submit" style="display:none;">Register</button>
+                <input type="text" hidden value="staff" name="user">
+            </form>
+        </div>
+    
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Lost & Found. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <input type="text" id="current-user-type" hidden value={{current_user_type}}>
+
+
+
+
+    <script>
+        function showForm() {
+            var userType = document.getElementById("user-type").value;
+            var studentForm = document.getElementById("student-form");
+            var staffForm = document.getElementById("staff-form");
+
+            if (userType === "student") {
+                studentForm.style.display = "block";
+                staffForm.style.display = "none";
+            } else if (userType === "staff") {
+                studentForm.style.display = "none";
+                staffForm.style.display = "block";
+            } else {
+                studentForm.style.display = "none";
+                staffForm.style.display = "none";
+            }
+
+            document.getElementById('error-box').style.display = "none";
+        }
+
+        function validatePassword(password, type) {
+            const lengthRequirement = password.length >= 8 && password.length <= 16;
+            const numCount = (password.match(/\d/g) || []).length;
+            const specialCharCount = (password.match(/[!@#$%^&*(),.?":{}|<>]/g) || []).length;
+            const uppercaseCount = (password.match(/[A-Z]/g) || []).length;
+
+            const lengthValid = lengthRequirement;
+            const numValid = numCount >= 2;
+            const specialCharValid = specialCharCount >= 2;
+            const uppercaseValid = uppercaseCount >= 2;
+
+            document.getElementById(`${type}-length-requirement`).classList.toggle('valid', lengthValid);
+            document.getElementById(`${type}-numeric-requirement`).classList.toggle('valid', numValid);
+            document.getElementById(`${type}-special-requirement`).classList.toggle('valid', specialCharValid);
+            document.getElementById(`${type}-uppercase-requirement`).classList.toggle('valid', uppercaseValid);
+
+            return lengthValid && numValid && specialCharValid && uppercaseValid;
+        }
+
+        function updateCharCount(password, type) {
+            const charCount = password.length;
+            document.getElementById(`${type}-char-count`).textContent = `${charCount} / 16 characters`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const studentPasswordInput = document.getElementById('student-password');
+            const staffPasswordInput = document.getElementById('staff-password');
+            const studentSubmitBtn = document.getElementById('student-submit-btn');
+            const staffSubmitBtn = document.getElementById('staff-submit-btn');
+
+            studentPasswordInput.addEventListener('input', function () {
+                const password = studentPasswordInput.value;
+                updateCharCount(password, 'student');
+                if (validatePassword(password, 'student')) {
+                    studentSubmitBtn.style.display = 'block';
+                } else {
+                    studentSubmitBtn.style.display = 'none';
+                }
+            });
+
+            staffPasswordInput.addEventListener('input', function () {
+                const password = staffPasswordInput.value;
+                updateCharCount(password, 'staff');
+                if (validatePassword(password, 'staff')) {
+                    staffSubmitBtn.style.display = 'block';
+                } else {
+                    staffSubmitBtn.style.display = 'none';
+                }
+            });
+        });
+
+        function togglePassword(type) {
+            const passwordInput = document.getElementById(`${type}-password`);
+            const togglePasswordBtn = document.getElementById(`${type}-toggle-password`);
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                togglePasswordBtn.textContent = "Hide Password";
+            } else {
+                passwordInput.type = "password";
+                togglePasswordBtn.textContent = "Show Password";
+            }
+        }
+
+        let current_user_type = document.getElementById('current-user-type').value
+        document.getElementById("user-type").value = current_user_type;
+        showForm();
+    </script>
+</body>
+
+</html>
