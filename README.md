@@ -9,7 +9,7 @@ This web application allows users to report lost items, search for lost items, a
 - **Search Lost Item**: Users can search for lost items. If an item is found, users can follow the given instructions to claim it.
 - **Report Found Item**: Users can report found items by providing a description of the item.
 
-> **Note**: This website is only for university students.
+> **Note**: This website is only for university students and Staff.
 > 
 # Usage
 
